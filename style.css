@@ -88,9 +88,6 @@ h1 {
   margin-left: 2rem;
 }
 
-.language {
-  border-radius: 1rem;
-}
 .language:hover {
   color: #fff;
 }
@@ -116,6 +113,7 @@ h1 {
   font-family: inherit;
   padding: 2rem 3rem;
   cursor: pointer;
+  border-radius: 1rem;
 }
 
 .btn:hover {
