@@ -50,7 +50,7 @@ function showMessage(message) {
 const NUMBER = document.querySelector('.number');
 
 // document.querySelector('.number').textContent = computerNumber;
-document.querySelector('.check').addEventListener('click', () => {
+const checkGuess = () => {
   let guessNumber = Number(document.querySelector('.guess').value);
   if (score > 1) {
     if (!guessNumber) {
@@ -76,9 +76,16 @@ document.querySelector('.check').addEventListener('click', () => {
     showMessage('❌ You lost the game!');
     document.querySelector('.score').textContent = 0;
   }
+};
+
+document.querySelector('.check').addEventListener('click', checkGuess);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    checkGuess();
+  }
 });
 
-document.querySelector('.again').addEventListener('click', function () {
+let addagain = () => {
   computerNumber = Math.trunc(Math.random() * 20) + 1;
   score = 20;
   document.querySelector('.guess').value = '';
@@ -88,4 +95,11 @@ document.querySelector('.again').addEventListener('click', function () {
 
   document.querySelector('body').style.backgroundColor = '#222';
   NUMBER.style.width = '15rem';
+};
+
+document.querySelector('.again').addEventListener('click', addagain);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    addagain();
+  }
 });
